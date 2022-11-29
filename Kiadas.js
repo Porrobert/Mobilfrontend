@@ -57,15 +57,27 @@ export default class App extends Component {
 
               <View style={{marginBottom:30}}>
               <Text style={{fontSize:30,color:'darkred',textAlign:'center'}}>
+                {item.fajta_nev}
+              </Text>
+              <Text style={{fontSize:30,color:'darkred',textAlign:'center'}}>
                 {item.kiadas_nev}
               </Text>
-              <Image   source={{uri:'http://192.168.6.3:3000/'+item.kiadas_kep}} style={{width:300,height:300,alignSelf:'center'}}   />
-              <TouchableOpacity
+              <Text style={{fontSize:30,color:'darkred',textAlign:'center'}}>
+                {item.kiadas_ar}
+              </Text>
+              <Text style={{fontSize:30,color:'darkred',textAlign:'center'}}>
+                {item.kiadas_datum}
+              </Text>
+
+              <Image   source={{uri:'http://192.168.6.3:3000/'+item.kiadas_koltsegfajta}} style={{width:300,height:300,alignSelf:'center',color:'Red'}}   />
+             {/*----------------------------------------------------------------------}
+             <TouchableOpacity
           style={styles.button}
-          onPress={async ()=>this.szavazat(item.kiadas_id)}
+          onPress={async ()=>this.szavazat(item.kiadas_koltsegfajta)}
         >
           <Text style={{color:'white',fontSize:30}}>Költség</Text>
-        </TouchableOpacity>           
+        </TouchableOpacity>
+        { */}           
               </View>
             )}
           />
