@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, StyleSheet, View } from 'react-native';
+const IP = require('./Ipcim');
 
 export default class ButtonBasics extends Component {
   _onPressButton() {

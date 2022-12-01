@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import Elso from './Elso'
 import Masodik from './Masodik'
 import Kiadas from './Kiadas'
+import Kiadas2 from './Kiadas2'
 
 
 function HomeScreen({ navigation }) {
@@ -43,6 +44,11 @@ function kiadas_lap({ navigation }) {
     <Kiadas />
   );
 }
+function kiadas2_lap({ navigation }) {
+  return (
+    <Kiadas2 />
+  );
+}
 
 const Drawer = createDrawerNavigator();
 
@@ -55,6 +61,7 @@ export default function App() {
         <Drawer.Screen name="Első" component={elso_lap} />
         <Drawer.Screen name="Második" component={masodik_lap} />
         <Drawer.Screen name="Kiadás" component={kiadas_lap} />
+        <Drawer.Screen name="Kiadás2" component={kiadas2_lap} />
 
       </Drawer.Navigator>
     </NavigationContainer>

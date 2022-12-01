@@ -1,6 +1,24 @@
 import React, { Component } from 'react';
-import {StyleSheet, ActivityIndicator, FlatList, Text, View, Image, TouchableOpacity } from 'react-native';
+import {StyleSheet, ActivityIndicator, FlatList, Text, View, Image, TouchableOpacity,} from 'react-native';
 const IP = require('./Ipcim');
+
+
+
+const Flex = () => {
+  return (
+    <View style={[styles.container, {
+      // Try setting `flexDirection` to `"row"`.
+      flexDirection: "row"
+    }]}>
+      <View style={{ flex: 1, backgroundColor: "red" }} />
+      <View style={{ flex: 1, backgroundColor: "darkorange" }} />
+      <View style={{ flex: 1, backgroundColor: "green" }} />
+    </View>
+  );
+};
+
+
+
 
 export default class App extends Component {
   constructor(props) {
@@ -57,7 +75,7 @@ export default class App extends Component {
             renderItem={({ item }) => (
 
               <View style={{marginBottom:30}}>
-              <Text style={{fontSize:30,color:'darkred',textAlign:'center'}}>
+              <Text style={{fontSize:30,color:'darkred',textAlign:'center',flex:1}}>
                 {item.fajta_nev}
               </Text>
 
@@ -78,7 +96,7 @@ export default class App extends Component {
                 {item.kiadas_datum}
               </Text>
 
-              <Image   source={{uri:IP.ipcim+item.fajta_kep}} style={{width:300,height:300,alignSelf:'center',color:'Red'}}   />
+              <Image source={require('./kepek/kep1.jpg')} style={{width:100,height:100,alignSelf:'center',color:'Red'}}   />
              {/*----------------------------------------------------------------------}
              <TouchableOpacity
           style={styles.button}
@@ -99,7 +117,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
   },
   button: {
     alignItems: "center",
