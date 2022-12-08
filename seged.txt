@@ -3,3 +3,5 @@ FROM koltsegfajta
 INNER JOIN kiadas
 ON koltsegfajta.fajta_id=kiadas.kiadas_koltsegfajta
 GROUP By koltsegfajta.fajta_nev
+
+koltsegek group by-olasa osszege felvezetese
