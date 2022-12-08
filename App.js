@@ -6,6 +6,7 @@ import Elso from './Elso'
 import Masodik from './Masodik'
 import Kiadas from './Kiadas'
 import Kiadas2 from './Kiadas2'
+import Kereses from './Kereses'
 
 
 function HomeScreen({ navigation }) {
@@ -49,6 +50,11 @@ function kiadas2_lap({ navigation }) {
     <Kiadas2 />
   );
 }
+function kereses_lap({ navigation }) {
+  return (
+    <Kereses />
+  );
+}
 
 const Drawer = createDrawerNavigator();
 
@@ -62,6 +68,7 @@ export default function App() {
         <Drawer.Screen name="Második" component={masodik_lap} />
         <Drawer.Screen name="Kiadás" component={kiadas_lap} />
         <Drawer.Screen name="Kiadás2" component={kiadas2_lap} />
+        <Drawer.Screen name="Keresés" component={kereses_lap} />
 
       </Drawer.Navigator>
     </NavigationContainer>

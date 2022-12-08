@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet, ActivityIndicator, FlatList, Text, View, Image, TouchableOpacity,} from 'react-native';
+import {StyleSheet, ActivityIndicator, FlatList, Text, View, Image, TouchableOpacity, TextInput, Button,} from 'react-native';
 const IP = require('./Ipcim');
 
 
@@ -69,12 +69,33 @@ export default class App extends Component {
     return (
       <View style={{ flex: 1, padding: 24 , marginTop:40}}>
         {isLoading ? <ActivityIndicator/> : (
+
+          
           <FlatList
             data={data}
             keyExtractor={({ kiadas_id }, index) => kiadas_id}
             renderItem={({ item }) => (
 
+
               <View style={{marginBottom:30}}>
+
+              <Text style={{fontSize:25}}>
+                  
+              </Text>
+
+              <TextInput style={{fontSize:25,borderColor:'Black',borderWidth:3}}>
+
+              </TextInput>
+              <TouchableOpacity
+          style={styles.button}
+          onPress={async ()=>this.szavazat(item.kiadas_koltsegfajta)}
+        >
+          <Text style={{color:'white',fontSize:30}}>Keresés</Text>
+        </TouchableOpacity>
+
+              
+
+
               <Text style={{fontSize:30,color:'darkred',textAlign:'center',flex:1}}>
                 {item.fajta_nev}
               </Text>
