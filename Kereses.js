@@ -126,9 +126,8 @@ osszeg=(szam)=>{
           <Text style={{color:'white',fontSize:30}}>Hozzáadás</Text>
         </TouchableOpacity>
 
-
-
-        <View style={{ flex: 1, padding: 24 , marginTop:40}}>
+{/*}  
+      <View style={{ flex: 1, padding: 24 , marginTop:40}}>
         
         <FlatList
           
@@ -150,7 +149,7 @@ osszeg=(szam)=>{
         />
       )
     </View>
-
+ */}     
               </View>
             )}
           />
