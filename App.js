@@ -7,6 +7,7 @@ import Masodik from './Masodik'
 import Kiadas from './Kiadas'
 import Kiadas2 from './Kiadas2'
 import Kereses from './Kereses'
+import Rendszerezes from './Rendszerezes'
 
 
 function HomeScreen({ navigation }) {
@@ -55,6 +56,11 @@ function kereses_lap({ navigation }) {
     <Kereses />
   );
 }
+function rendszerezes_lap({ navigation }) {
+  return (
+    <Rendszerezes />
+  );
+}
 
 const Drawer = createDrawerNavigator();
 
@@ -69,6 +75,7 @@ export default function App() {
         <Drawer.Screen name="Kiadás" component={kiadas_lap} />
         <Drawer.Screen name="Kiadás2" component={kiadas2_lap} />
         <Drawer.Screen name="Keresés" component={kereses_lap} />
+        <Drawer.Screen name="Rendszerezés" component={rendszerezes_lap} />
 
       </Drawer.Navigator>
     </NavigationContainer>
