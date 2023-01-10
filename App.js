@@ -29,34 +29,34 @@ function NotificationsScreen({ navigation }) {
   );
 }
 
-function elso_lap({ navigation }) {
+function Elso_lap({ navigation }) {
   return (
     <Elso />
   );
 }
 
-function masodik_lap({ navigation }) {
+function Masodik_lap({ navigation }) {
   return (
     <Masodik />
   );
 }
 
-function kiadas_lap({ navigation }) {
+function Kiadas_lap({ navigation }) {
   return (
     <Kiadas />
   );
 }
-function kiadas2_lap({ navigation }) {
+function Kiadas2_lap({ navigation }) {
   return (
     <Kiadas2 />
   );
 }
-function kereses_lap({ navigation }) {
+function Kereses_lap({ navigation }) {
   return (
     <Kereses />
   );
 }
-function rendszerezes_lap({ navigation }) {
+function Rendszerezes_lap({ navigation }) {
   return (
     <Rendszerezes />
   );
@@ -70,12 +70,12 @@ export default function App() {
       <Drawer.Navigator initialRouteName="Home">
         <Drawer.Screen name="Home" component={HomeScreen} />
         <Drawer.Screen name="Notifications" component={NotificationsScreen} />
-        <Drawer.Screen name="Első" component={elso_lap} />
-        <Drawer.Screen name="Második" component={masodik_lap} />
-        <Drawer.Screen name="Kiadás" component={kiadas_lap} />
-        <Drawer.Screen name="Kiadás2" component={kiadas2_lap} />
-        <Drawer.Screen name="Keresés" component={kereses_lap} />
-        <Drawer.Screen name="Rendszerezés" component={rendszerezes_lap} />
+        <Drawer.Screen name="Első" component={Elso_lap} />
+        <Drawer.Screen name="Második" component={Masodik_lap} />
+        <Drawer.Screen name="Kiadás" component={Kiadas_lap} />
+        <Drawer.Screen name="Kiadás2" component={Kiadas2_lap} />
+        <Drawer.Screen name="Keresés" component={Kereses_lap} />
+        <Drawer.Screen name="Rendszerezés" component={Rendszerezes_lap} />
 
       </Drawer.Navigator>
     </NavigationContainer>

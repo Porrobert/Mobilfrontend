@@ -3,23 +3,6 @@ import {StyleSheet, ActivityIndicator, FlatList, Text, View, Image, TouchableOpa
 const IP = require('./Ipcim');
 
 
-
-const Flex = () => {
-  return (
-    <View style={[styles.container, {
-      // Try setting `flexDirection` to `"row"`.
-      flexDirection: "row"
-    }]}>
-      <View style={{ flex: 1, backgroundColor: "red" }} />
-      <View style={{ flex: 1, backgroundColor: "darkorange" }} />
-      <View style={{ flex: 1, backgroundColor: "green" }} />
-    </View>
-  );
-};
-
-
-
-
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -99,14 +82,6 @@ osszeg=(szam)=>{
               <Text style={{fontSize:30,color:'darkred',textAlign:'center',flex:1}}>
                 {item.fajta_nev}
                 </Text>
-
-
-
-              
-
-
-
-
               <Text style={{fontSize:30,color:'darkred',textAlign:'center'}}>
                 {item.kiadas_nev}
               </Text>
