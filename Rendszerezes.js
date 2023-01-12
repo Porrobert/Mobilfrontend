@@ -73,9 +73,7 @@ osszeg=()=>{
     return (
       <View style={{ flex: 1, padding: 24 , marginTop:40,backgroundColor:'lightblue'}}>
         
-        <Text  style={{fontSize:20,}}>Összeg:{this.state.osszeg} ft</Text>
-        <Text  style={{fontSize:20,}}>Kisösszeg:{} ft</Text>
-        <Text  style={{fontSize:20,}}>Típus:{} ft</Text>
+        <Text  style={{fontSize:20,}}>Összeg: {this.state.osszeg} ft</Text>
 
         {isLoading ? <ActivityIndicator/> : (
           <FlatList
@@ -89,17 +87,17 @@ osszeg=()=>{
                 {item.fajta_nev}
               </Text>
 
+              <Text style={{fontSize:20,color:'green',textAlign:'center',flex:1}}>
+                {item.osszeg} ft
+              </Text>
+
+
               <Image source={{uri:item.fajta_kep}}
-              style={{width:100,height:100,alignSelf:'center',color:'Red',margin:10}}/>
-             
+              style={{width:100,height:100,alignSelf:'center',color:'Red',margin:5}}/>
 
+              <Text style={{borderBottomColor:'black',borderBottomWidth:5}}>
 
-             <TouchableOpacity
-          style={styles.button}
-          onPress={async ()=>this.szavazat(item.kiadas_koltsegfajta)}
-        >
-          <Text style={{color:'white',fontSize:20}}>Hozzáadás</Text>
-        </TouchableOpacity>
+              </Text>
                   
               </View>
             )}
