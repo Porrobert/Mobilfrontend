@@ -5,3 +5,8 @@ ON koltsegfajta.fajta_id=kiadas.kiadas_koltsegfajta
 GROUP By koltsegfajta.fajta_nev
 
 koltsegek group by-olasa osszege felvezetese
+
+
+1. teszt megnyomom a gombot: alert hello
+2. teszt megnyomom a gombot, kiirja a text input szoveget
+3. teszt fetchet hiv, uj vegpont, insert, egy php myadminbol fullos insert fullos adatokkal 

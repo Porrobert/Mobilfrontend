@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet, ActivityIndicator, FlatList, Text, View, Image, TouchableOpacity,} from 'react-native';
+import {StyleSheet, ActivityIndicator, FlatList, Text, View, Image, TouchableOpacity,TextInput,onChangeText,Button} from 'react-native';
 const IP = require('./Ipcim');
 
 export default class App extends Component {
@@ -10,7 +10,10 @@ export default class App extends Component {
       data: [],
       data2: [],
       osszeg:0,
-      isLoading: true
+      isLoading: true,
+      nev:"",
+      ar:"",
+      datum:""
     };
   }
 
@@ -62,7 +65,29 @@ try {
 
 */
 
-osszeg=()=>{
+felvitel=async ()=>{
+  //alert(this.props.akttema)
+  try {
+    let adatok={
+      bevitel1:this.state.nev,
+      bevitel2:this.state.ar,
+      bevitel3:this.state.datum
+    }
+    const response = await fetch(IP.ipcim+'felvitel',
+    {
+      method: "POST",
+      body: JSON.stringify(adatok),
+      headers: {"Content-type": "application/json; charset=UTF-8"}
+    }
+    );
+    const szoveg = await response.text();
+    alert(szoveg)
+   
+  } catch (error) {
+    console.log(error);
+  } finally {
+    
+  }
 
 }
 
@@ -74,12 +99,42 @@ osszeg=()=>{
       <View style={{ flex: 1, padding: 24 , marginTop:40,backgroundColor:'lightblue'}}>
 
         <Text  style={{fontSize:20,}}>Összeg:{this.state.osszeg} ft</Text>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={async ()=>this.szavazat(item.kiadas_koltsegfajta)}
-        >
-          <Text style={{color:'white',fontSize:20}}>Felvitel</Text>
-        </TouchableOpacity>
+
+
+
+        <View style={{backgroundColor:"lightblue"}}>
+        <View style={styles.buttonContainer}>
+        <Text>Fajta:</Text> 
+        <TextInput
+        style={{height: 40}}
+        placeholder="Írd be a költség fajtáját!"
+        onChangeText={(beirtszoveg)=>this.setState({nev:beirtszoveg})}
+        value={this.state.nev}
+      />
+        <Text>Ár:</Text>
+        <TextInput
+        style={{height: 40}}
+        placeholder="Írd be az árat!"
+        onChangeText={(beirtszoveg)=>this.setState({ar:beirtszoveg})}
+        value={this.state.ar}
+      />
+        <Text>Dátum:</Text>
+        <TextInput
+        style={{height: 40}}
+        placeholder="Írd be a dátumot!"
+        onChangeText={(beirtszoveg)=>this.setState({datum:beirtszoveg})}
+        value={this.state.datum}
+      />
+          <Button
+            onPress={()=>alert(this.state.nev)}
+            title="Felvitel"
+          />
+        </View>
+       
+       
+      </View>
+
+        
 
         {isLoading ? <ActivityIndicator/> : (
           <FlatList
