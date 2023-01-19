@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {StyleSheet, ActivityIndicator, FlatList, Text, View, Image, TouchableOpacity,TextInput,onChangeText,Button} from 'react-native';
+import DateTimePicker from '@react-native-community/datetimepicker';
+import {Picker} from '@react-native-picker/picker';
 const IP = require('./Ipcim');
 
 export default class App extends Component {
@@ -9,11 +11,16 @@ export default class App extends Component {
     this.state = {
       data: [],
       data2: [],
+      datafajta:[],
       osszeg:0,
       isLoading: true,
       nev:"",
       ar:"",
-      datum:""
+      datum:"",
+      kiadas_reszletek:"",
+      valaszto:1,
+      date:new Date()
+
     };
   }
 
@@ -31,6 +38,21 @@ try {
   this.setState({ isLoading: false });
 }
 
+    //Fajta lekerdezese
+    try {
+      const response = await fetch(IP.ipcim+'koltsegfajta');
+      const json = await response.json();
+      console.log(json)
+      this.setState({ datafajta: json });
+    } catch (error) {
+      console.log(error);
+    } finally {
+      this.setState({ isLoading: false });
+    }
+
+
+
+
     //kiadas lekerdezese
     try {
       const response = await fetch(IP.ipcim+'kiadas');
@@ -47,31 +69,21 @@ try {
   componentDidMount() {
     this.getMovies();
   }
-/*
-  szavazat=(szam)=>{
-    //alert(szam)
-    var adatok={
-      bevitel1:szam
-    }
-    alert(adatok.bevitel1)
-    const response = fetch('http://192.168.6.3:3000/szavazat',{
-      method: "POST",
-      body: JSON.stringify(adatok),
-      headers: {"Content-type": "application/json; charset=UTF-8"}
-    });
-      const text =  response.text();
-      console.log(text)
-  }
 
-*/
+
+valfajta=(ertek)=>{
+  this.setState({valaszto:ertek})
+  //alert(ertek)
+}
 
 felvitel=async ()=>{
   //alert(this.props.akttema)
   try {
     let adatok={
-      bevitel1:this.state.nev,
+      bevitel1:this.state.valaszto,
       bevitel2:this.state.ar,
-      bevitel3:this.state.datum
+      bevitel3:this.state.datum,
+      bevitel4:this.state.kiadas_reszletek
     }
     const response = await fetch(IP.ipcim+'felvitel',
     {
@@ -104,31 +116,48 @@ felvitel=async ()=>{
 
         <View style={{backgroundColor:"lightblue"}}>
         <View style={styles.buttonContainer}>
-        <Text>Fajta:</Text> 
-        <TextInput
-        style={{height: 40}}
-        placeholder="Írd be a költség fajtáját!"
-        onChangeText={(beirtszoveg)=>this.setState({nev:beirtszoveg})}
-        value={this.state.nev}
-      />
+
+        
         <Text>Ár:</Text>
         <TextInput
         style={{height: 40}}
         placeholder="Írd be az árat!"
         onChangeText={(beirtszoveg)=>this.setState({ar:beirtszoveg})}
         value={this.state.ar}
-      />
+        />
         <Text>Dátum:</Text>
         <TextInput
         style={{height: 40}}
         placeholder="Írd be a dátumot!"
         onChangeText={(beirtszoveg)=>this.setState({datum:beirtszoveg})}
         value={this.state.datum}
-      />
-          <Button
-            onPress={()=>alert(this.state.nev)}
-            title="Felvitel"
+        />
+        <Text>Kiadás neve:</Text>
+        <TextInput
+        style={{height: 40}}
+        placeholder="Írd be a kiadás nevét!"
+        onChangeText={(beirtszoveg)=>this.setState({kiadas_reszletek:beirtszoveg})}
+        value={this.state.kiadas_reszletek}
+        />
+        <Text>Fajta:</Text> 
+          <Picker 
+                style={{backgroundColor:"#42adf5",color:"white",marginTop:10, marginBottom:10}}
+                selectedValue={this.state.valaszto}
+                onValueChange={(itemValue) => this.valfajta(itemValue)
+              }>
+                  {this.state.datafajta.map(item=>
+
+                <Picker.Item label={item.fajta_nev} value={item.fajta_id} />
+          )}
+
+              </Picker>
+
+              <Button
+              onPress={()=>this.felvitel()}
+               title="Felvitel"
+               
           />
+
         </View>
        
        
