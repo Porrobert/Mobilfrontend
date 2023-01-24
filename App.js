@@ -9,6 +9,7 @@ import Kiadas2 from './Kiadas2'
 import Kereses from './Kereses'
 import Rendszerezes from './Rendszerezes'
 import Felvitel from './Felvitel'
+import Felvitel2 from './Felvitel2'
 
 
 function HomeScreen({ navigation }) {
@@ -67,6 +68,11 @@ function Felvitel_lap({ navigation }) {
     <Felvitel />
   );
 }
+function Felvitel2_lap({ navigation }) {
+  return (
+    <Felvitel2 />
+  );
+}
 
 const Drawer = createDrawerNavigator();
 
@@ -83,6 +89,7 @@ export default function App() {
         <Drawer.Screen name="Keresés" component={Kereses_lap} />
         <Drawer.Screen name="Rendszerezés" component={Rendszerezes_lap} />
         <Drawer.Screen name="Felvitel" component={Felvitel_lap} />
+        <Drawer.Screen name="Felvitel2" component={Felvitel2_lap} />
 
       </Drawer.Navigator>
     </NavigationContainer>
