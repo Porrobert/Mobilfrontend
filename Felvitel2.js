@@ -83,7 +83,7 @@ felvitel=async ()=>{
     let adatok={
       bevitel1:this.state.valaszto,
       bevitel2:this.state.ar,
-      bevitel3:this.state.datum,
+      bevitel3:this.state.date.getFullYear()+"-"+(this.state.date.getMonth()+1)+"-"+this.state.date.getDate(),
       bevitel4:this.state.kiadas_reszletek
     }
     const response = await fetch(IP.ipcim+'felvitel',
@@ -153,13 +153,7 @@ showDatepicker = () => {
         onChangeText={(beirtszoveg)=>this.setState({ar:beirtszoveg})}
         value={this.state.ar}
         />
-        <Text>Dátum:</Text>
-        <TextInput
-        style={{height: 40}}
-        placeholder="Írd be a dátumot!"
-        onChangeText={(beirtszoveg)=>this.setState({datum:beirtszoveg})}
-        value={this.state.datum}
-        />
+        
         <Text>Kiadás neve:</Text>
         <TextInput
         style={{height: 40}}
@@ -167,6 +161,23 @@ showDatepicker = () => {
         onChangeText={(beirtszoveg)=>this.setState({kiadas_reszletek:beirtszoveg})}
         value={this.state.kiadas_reszletek}
         />
+
+<Button onPress={this.showDatepicker} title="Dátum" />    
+    <Text style={{marginLeft:"auto", marginRight:"auto",
+     backgroundColor:"yellow",textAlign:"center", width:200, margin:10,padding:10}}> 
+    {this.state.date.getFullYear()+"/"+(this.state.date.getMonth()+1)+"/"+this.state.date.getDate()}
+    </Text>
+    {this.state.show && (
+        <DateTimePicker
+          testID="dateTimePicker"
+          value={this.state.date}
+          mode="date"
+          is24Hour={true}
+          onChange={this.onChange}
+        />
+      )}
+
+
         <Text>Fajta:</Text> 
           <Picker 
                 style={{backgroundColor:"#42adf5",color:"white",marginTop:10, marginBottom:10}}
@@ -187,20 +198,7 @@ showDatepicker = () => {
           />
 
 
-<Button onPress={this.showDatepicker} title="Dátum" />    
-    <Text style={{marginLeft:"auto", marginRight:"auto",
-     backgroundColor:"yellow",textAlign:"center", width:200, margin:10,padding:10}}> 
-    {this.state.date.getFullYear()+"/"+(this.state.date.getMonth()+1)+"/"+this.state.date.getDate()}
-    </Text>
-    {this.state.show && (
-        <DateTimePicker
-          testID="dateTimePicker"
-          value={this.state.date}
-          mode="date"
-          is24Hour={true}
-          onChange={this.onChange}
-        />
-      )}
+
 
 
 
