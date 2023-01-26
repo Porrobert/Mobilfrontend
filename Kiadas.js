@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet, ActivityIndicator, FlatList, Text, View, Image, TouchableOpacity } from 'react-native';
+import {StyleSheet, ActivityIndicator, FlatList, Text, View, Image, TouchableOpacity,} from 'react-native';
 const IP = require('./Ipcim');
 
 export default class App extends Component {
@@ -8,11 +8,27 @@ export default class App extends Component {
 
     this.state = {
       data: [],
+      data2: [],
+      osszeg:0,
       isLoading: true
     };
   }
 
   async getMovies() {
+//kiadas összegzese
+try {
+  const response = await fetch(IP.ipcim+'osszegzes');
+  const json = await response.json();
+  console.log(json)
+  this.setState({ data2: json });
+  this.setState({osszeg:json[0].osszeg})  
+} catch (error) {
+  console.log(error);
+} finally {
+  this.setState({ isLoading: false });
+}
+
+    //kiadas lekerdezese
     try {
       const response = await fetch(IP.ipcim+'kiadas');
       const json = await response.json();
@@ -45,48 +61,57 @@ export default class App extends Component {
   }
 
 */
+
+osszeg=()=>{
+
+}
+
   render() {
     const { data, isLoading } = this.state;
 
+
     return (
-      <View style={{ flex: 1, padding: 24 , marginTop:40}}>
+      <View style={{ flex: 1, padding: 24 , marginTop:40,backgroundColor:'lightblue'}}>
+
+        <Text  style={{fontSize:20,}}>Összeg:{this.state.osszeg} ft</Text>
+
         {isLoading ? <ActivityIndicator/> : (
           <FlatList
             data={data}
             keyExtractor={({ kiadas_id }, index) => kiadas_id}
             renderItem={({ item }) => (
-
               <View style={{marginBottom:30}}>
-              <Text style={{fontSize:30,color:'darkred',textAlign:'center'}}>
+
+                
+              <Text style={{fontSize:30,color:'darkred',textAlign:'center',flex:1}}>
                 {item.fajta_nev}
               </Text>
 
-
-
-              
-
-
-
-
-              <Text style={{fontSize:30,color:'darkred',textAlign:'center'}}>
+              <Text style={{fontSize:20,color:'green',textAlign:'center'}}>
                 {item.kiadas_nev}
               </Text>
-              <Text style={{fontSize:30,color:'darkred',textAlign:'center'}}>
+
+              <Text style={{fontSize:20,color:'blue',textAlign:'center'}}>
                 {item.kiadas_ar} ft
               </Text>
-              <Text style={{fontSize:30,color:'darkred',textAlign:'center'}}>
+
+              <Text style={{fontSize:20,color:'purple',textAlign:'center'}}>
                 {item.kiadas_datum}
               </Text>
 
-              <Image   source={{uri:IP.ipcim+item.fajta_kep}} style={{width:300,height:300,alignSelf:'center',color:'Red'}}   />
-             {/*----------------------------------------------------------------------}
+
+              <Image source={{uri:item.fajta_kep}}
+              style={{width:100,height:100,alignSelf:'center',color:'Red',margin:10}}/>
+             <Text style={{borderBottomColor:'black',borderBottomWidth:5}}></Text>
+
+
              <TouchableOpacity
           style={styles.button}
           onPress={async ()=>this.szavazat(item.kiadas_koltsegfajta)}
         >
-          <Text style={{color:'white',fontSize:30}}>Költség</Text>
+          <Text style={{color:'white',fontSize:20}}>Hozzáadás</Text>
         </TouchableOpacity>
-        { */}           
+                  
               </View>
             )}
           />
@@ -99,7 +124,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
   },
   button: {
     alignItems: "center",
