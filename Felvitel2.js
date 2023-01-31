@@ -105,6 +105,12 @@ felvitel=async ()=>{
 }
 
 
+
+torles=()=>{
+  alert(kiadas_id)
+}
+
+
 /*-------------------------------------------- Datitempicker függvényei */
 onChange = (event, selectedDate) => {
   const currentDate = selectedDate;
@@ -194,6 +200,11 @@ showDatepicker = () => {
               <Button
               onPress={()=>this.felvitel()}
                title="Felvitel"
+               
+          />
+              <Button
+              onPress={()=>this.torles()}
+               title="Törlés"
                
           />
 
