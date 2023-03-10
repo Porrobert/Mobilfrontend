@@ -103,14 +103,6 @@ osszeg=()=>{
               <Image source={{uri:item.fajta_kep}}
               style={{width:100,height:100,alignSelf:'center',color:'Red',margin:10}}/>
              <Text style={{borderBottomColor:'black',borderBottomWidth:5}}></Text>
-
-
-             <TouchableOpacity
-          style={styles.button}
-          onPress={async ()=>this.szavazat(item.kiadas_koltsegfajta)}
-        >
-          <Text style={{color:'white',fontSize:20}}>Hozzáadás</Text>
-        </TouchableOpacity>
                   
               </View>
             )}

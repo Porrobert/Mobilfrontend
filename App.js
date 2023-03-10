@@ -7,18 +7,9 @@ import Kereses from './Kereses'
 import Rendszerezes from './Rendszerezes'
 import Felvitel from './Felvitel'
 import Felvitel2 from './Felvitel2'
-
-
-function HomeScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button
-        onPress={() => navigation.navigate('Notifications')}
-        title="Go to notifications"
-      />
-    </View>
-  );
-}
+import Ujosszeg from './Ujosszeg'
+import Bevetelfizetes from './Bevetelfizetes'
+import Beveteltorles from './Beveteltorles'
 
 
 
@@ -47,6 +38,21 @@ function Felvitel2_lap({ navigation }) {
     <Felvitel2 />
   );
 }
+function Ujosszeg_lap({ navigation }) {
+  return (
+    <Ujosszeg />
+  );
+}
+function Bevetelfizetes_lap({ navigation }) {
+  return (
+    <Bevetelfizetes />
+  );
+}
+function Beveteltorles_lap({ navigation }) {
+  return (
+    <Beveteltorles />
+  );
+}
 
 const Drawer = createDrawerNavigator();
 
@@ -54,12 +60,14 @@ export default function App() {
   return (
     <NavigationContainer>
       <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Home" component={HomeScreen} />
         <Drawer.Screen name="Kiadás" component={Kiadas_lap} />
         <Drawer.Screen name="Keresés" component={Kereses_lap} />
         <Drawer.Screen name="Rendszerezés" component={Rendszerezes_lap} />
         <Drawer.Screen name="Felvitel" component={Felvitel_lap} />
         <Drawer.Screen name="Felvitel2" component={Felvitel2_lap} />
+        <Drawer.Screen name="Új bevétel hozzáadása" component={Ujosszeg_lap} />
+        <Drawer.Screen name="Bevételfizetés" component={Bevetelfizetes_lap} />
+        <Drawer.Screen name="Bevételtörlés" component={Beveteltorles_lap} />
 
       </Drawer.Navigator>
     </NavigationContainer>
