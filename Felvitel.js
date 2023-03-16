@@ -104,7 +104,11 @@ felvitel=async ()=>{
 
 }
 
-
+levag=(datum2)=>{
+  let kecske=datum2.split('T')
+  return kecske[0]
+  }
+  
 /*-------------------------------------------- Datitempicker függvényei */
 onChange = (event, selectedDate) => {
   const currentDate = selectedDate;
@@ -230,7 +234,7 @@ showDatepicker = () => {
               </Text>
 
               <Text style={{fontSize:20,color:'purple',textAlign:'center'}}>
-                {item.kiadas_datum}
+                {this.levag(item.kiadas_datum)}
               </Text>
 
 

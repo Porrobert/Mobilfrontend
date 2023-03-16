@@ -30,6 +30,10 @@ export default class App extends Component {
   componentDidMount() {
     this.getMovies();
   }
+  levag=(datum2)=>{
+    let kecske=datum2.split('T')
+    return kecske[0]
+    }
   render() {
     
   
@@ -48,7 +52,7 @@ export default class App extends Component {
                 {item.bevetel_osszeg} Ft
               </Text>
               <Text style={{fontSize:20,color:'darkblue',textAlign:'center'}}>
-                {item.bevetel_datum}
+                {this.levag(item.bevetel_datum)}
               </Text>
               <View style={styles.centeredView}>
      {/* <Modal

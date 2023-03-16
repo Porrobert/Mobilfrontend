@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet, ActivityIndicator, FlatList, Text, View, Image, TouchableOpacity,TextInput,onChangeText,Button} from 'react-native';
+import {StyleSheet, ActivityIndicator, FlatList, Text, View, Image,ScrollView, TouchableOpacity,TextInput,onChangeText,Button} from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import {Picker} from '@react-native-picker/picker';
 const IP = require('./Ipcim');
@@ -105,6 +105,10 @@ felvitel=async ()=>{
 }
 
 
+levag=(datum2)=>{
+  let kecske=datum2.split('T')
+  return kecske[0]
+  }
 
 torles=()=>{
   alert(kiadas_id)
@@ -142,7 +146,7 @@ showDatepicker = () => {
 
 
     return (
-      <View style={{ flex: 1, padding: 24 , marginTop:40,backgroundColor:'lightblue'}}>
+      <ScrollView style={{ flex: 1, padding: 24 , marginTop:40,backgroundColor:'lightblue'}}>
 
         <Text  style={{fontSize:20,}}>Összeg:{this.state.osszeg} ft</Text>
 
@@ -241,7 +245,7 @@ showDatepicker = () => {
               </Text>
 
               <Text style={{fontSize:20,color:'purple',textAlign:'center'}}>
-                {item.kiadas_datum}
+                {this.levag(item.kiadas_datum)}
               </Text>
 
 
@@ -253,7 +257,7 @@ showDatepicker = () => {
             )}
           />
         )}
-      </View>
+      </ScrollView>
     );
   }
 };

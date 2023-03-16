@@ -65,6 +65,10 @@ try {
 osszeg=()=>{
 
 }
+levag=(datum2)=>{
+  let kecske=datum2.split('T')
+  return kecske[0]
+  }
 
   render() {
     const { data, isLoading } = this.state;
@@ -96,7 +100,7 @@ osszeg=()=>{
               </Text>
 
               <Text style={{fontSize:20,color:'purple',textAlign:'center'}}>
-                {item.kiadas_datum}
+                {this.levag(item.kiadas_datum)}
               </Text>
 
 
