@@ -14,7 +14,7 @@ export default class App extends Component {
     };
   }
 
-  async getMovies() {
+  async getData() {
     try {
       const response = await fetch(IP.ipcim+'kiadas');
       const json = await response.json();
@@ -28,7 +28,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    this.getMovies();
+    this.getData();
   }
 
   
@@ -61,7 +61,7 @@ return kecske[0]
     const { data, isLoading } = this.state;
 
     return (
-      <View style={{ flex: 1, padding: 24 , marginTop:40}}>
+      <View style={{ flex: 1, padding: 24 , marginTop:40,backgroundColor:'lightblue'}}>
         {isLoading ? <ActivityIndicator/> : (
 
 <View>
@@ -91,46 +91,23 @@ return kecske[0]
 
               
               
-              <Text style={{fontSize:30,color:'darkred',textAlign:'center',flex:1}}>
+              <Text style={{fontSize:30,color:'blue',textAlign:'center',flex:1}}>
                 {item.fajta_nev}
                 </Text>
-              <Text style={{fontSize:30,color:'darkred',textAlign:'center'}}>
+              <Text style={{fontSize:30,color:'black',textAlign:'center'}}>
                 {item.kiadas_nev}
               </Text>
-              <Text style={{fontSize:30,color:'darkred',textAlign:'center'}}>
+              <Text style={{fontSize:30,color:'green',textAlign:'center'}}>
                 {item.kiadas_ar} ft
               </Text>
-              <Text style={{fontSize:30,color:'darkred',textAlign:'center'}}>
+              <Text style={{fontSize:30,color:'purple',textAlign:'center'}}>
                 {this.levag(item.kiadas_datum)}
               </Text>
 
-              <Image source={require('./kepek/kep1.jpg')} style={{width:100,height:100,alignSelf:'center',color:'Red'}}   />
-             
-
-{/*}  
-      <View style={{ flex: 1, padding: 24 , marginTop:40}}>
-        
-        <FlatList
-          
-          keyExtractor={({ fajta_id }, index) => fajta_id}
-          renderItem={({ item }) => (
-
-            <View style={{marginBottom:30}}>
-              <View>
-              <Text style={{fontSize:30,color:'darkred',textAlign:'center'}}>{item.fajta_nev}</Text>
-              </View>
-              <Image   source={{uri:IP.ipcim+item.fajta_kep}} style={{width:300,height:300,alignSelf:'center'}}   />
-              <TouchableOpacity style={styles.button} onPress={async ()=>this.szavazat(item.fajta_id)}>
-              <View>
-                <Text style={{color:'white',fontSize:30}}>Összeg hozzáadása</Text>
-              </View>
-              </TouchableOpacity>           
-            </View>
-          )}
-        />
-      )
-    </View>
- */}     
+              <Image source={{uri:item.fajta_kep}}
+              style={{width:100,height:100,alignSelf:'center',color:'Red',margin:10}}/>
+             <Text style={{borderBottomColor:'darkblue',borderBottomWidth:5,borderStyle:'dashed',margin:10}}></Text>
+                 
               </View>
             )}
           />
@@ -161,8 +138,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "blue",
     padding: 10,
-    marginLeft:30,
-    marginRight:30
+    height:60,
+    marginLeft:20,
+    marginRight:20,
+    textAlign:'center',
+    textAlignVertical:'center'
   },
   countContainer: {
     alignItems: "center",

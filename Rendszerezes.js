@@ -73,7 +73,7 @@ osszeg=()=>{
     return (
       <View style={{ flex: 1, padding: 24 , marginTop:40,backgroundColor:'lightblue'}}>
         
-        <Text  style={{fontSize:20,}}>Összeg: {this.state.osszeg} ft</Text>
+        <Text  style={{fontSize:30,color:"green"}}>Összeg: {this.state.osszeg} ft</Text>
 
         {isLoading ? <ActivityIndicator/> : (
           <FlatList
@@ -83,7 +83,7 @@ osszeg=()=>{
               <View style={{marginBottom:30}}>
 
                 
-              <Text style={{fontSize:30,color:'darkred',textAlign:'center',flex:1}}>
+              <Text style={{fontSize:30,color:'black',textAlign:'center',flex:1}}>
                 {item.fajta_nev}
               </Text>
 
@@ -95,7 +95,7 @@ osszeg=()=>{
               <Image source={{uri:item.fajta_kep}}
               style={{width:100,height:100,alignSelf:'center',color:'Red',margin:5}}/>
 
-              <Text style={{borderBottomColor:'black',borderBottomWidth:5}}>
+              <Text style={{borderBottomColor:'darkblue',borderBottomWidth:5,borderStyle:'dashed',margin:10}}>
 
               </Text>
                   

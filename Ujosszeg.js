@@ -68,19 +68,19 @@ valfajta=(ertek)=>{
 
   render() {
     return (
-      <View style={{backgroundColor:"gainsboro"}}>
+      <View style={{backgroundColor:"lightblue"}}>
        
         <View>
         <Text style={styles.osszeg}>Összeg:</Text>
         <TextInput
-        style={{height: 40, marginLeft: 40}}
+        style={{height: 40, marginLeft: 40,fontSize:15}}
         placeholder="Add meg az összeget"
         onChangeText={(beirtszoveg)=>this.setState({osszeg:beirtszoveg})}
         value={this.state.osszeg}
       />
         <Text style={styles.datum}>Dátum:</Text>
         <TextInput
-        style={{height: 40, marginLeft: 40}}
+        style={{height: 40, marginLeft: 40,fontSize:15}}
         placeholder="Add meg a dátumot pl. 2023-01-24"
         onChangeText={(beirtszoveg)=>this.setState({osszeg:beirtszoveg})}
         value={this.state.ujdatum}
@@ -88,7 +88,7 @@ valfajta=(ertek)=>{
           </View>
      
         <Picker 
-                style={{backgroundColor:"antiquewhite",color:"black",marginTop:20, marginBottom:20}}
+                style={{backgroundColor:"blue",color:"black",fontSize:20,marginBottom:20}}
                 selectedValue={this.state.kivalasztott}
                 onValueChange={(itemValue) => this.valfajta(itemValue) }>
                   {this.state.data.map(item=>
@@ -110,7 +110,7 @@ valfajta=(ertek)=>{
           >
             <Text
             
-            style={styles.gomb}>Felvitel</Text>
+            style={styles.gomb,{backgroundColor:"cyan",height:60,fontSize:40,textAlign:'center',marginBottom:20}}>Felvitel</Text>
           </TouchableOpacity>
        
       </View>
@@ -138,9 +138,12 @@ const styles = StyleSheet.create({
     fontSize:20
   },
   osszeg:{
-    marginLeft: 25
+    marginLeft: 25,
+    fontSize:20,
+    marginBottom:20
   },
   datum:{
-    marginLeft: 25
+    marginLeft: 25,
+    fontSize:20
   }
 });

@@ -44,23 +44,6 @@ try {
   componentDidMount() {
     this.getMovies();
   }
-/*
-  szavazat=(szam)=>{
-    //alert(szam)
-    var adatok={
-      bevitel1:szam
-    }
-    alert(adatok.bevitel1)
-    const response = fetch('http://192.168.6.3:3000/szavazat',{
-      method: "POST",
-      body: JSON.stringify(adatok),
-      headers: {"Content-type": "application/json; charset=UTF-8"}
-    });
-      const text =  response.text();
-      console.log(text)
-  }
-
-*/
 
 osszeg=()=>{
 
@@ -77,7 +60,7 @@ levag=(datum2)=>{
     return (
       <View style={{ flex: 1, padding: 24 , marginTop:40,backgroundColor:'lightblue'}}>
 
-        <Text  style={{fontSize:20,}}>Összeg:{this.state.osszeg} ft</Text>
+        <Text  style={{fontSize:30,color:"green"}}>Összeg:{this.state.osszeg} ft</Text>
 
         {isLoading ? <ActivityIndicator/> : (
           <FlatList
@@ -87,15 +70,15 @@ levag=(datum2)=>{
               <View style={{marginBottom:30}}>
 
                 
-              <Text style={{fontSize:30,color:'darkred',textAlign:'center',flex:1}}>
+              <Text style={{fontSize:30,color:'blue',textAlign:'center',flex:1}}>
                 {item.fajta_nev}
               </Text>
 
-              <Text style={{fontSize:20,color:'green',textAlign:'center'}}>
+              <Text style={{fontSize:20,color:'black',textAlign:'center'}}>
                 {item.kiadas_nev}
               </Text>
 
-              <Text style={{fontSize:20,color:'blue',textAlign:'center'}}>
+              <Text style={{fontSize:20,color:'green',textAlign:'center'}}>
                 {item.kiadas_ar} ft
               </Text>
 
@@ -106,7 +89,7 @@ levag=(datum2)=>{
 
               <Image source={{uri:item.fajta_kep}}
               style={{width:100,height:100,alignSelf:'center',color:'Red',margin:10}}/>
-             <Text style={{borderBottomColor:'black',borderBottomWidth:5}}></Text>
+             <Text style={{borderBottomColor:'darkblue',borderBottomWidth:5,borderStyle:'dashed',margin:10}}></Text>
                   
               </View>
             )}

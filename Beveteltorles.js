@@ -98,7 +98,7 @@ export default class FetchExample extends React.Component {
 
     if(this.state.isLoading){
       return(
-        <View style={{flex: 1, padding: 20}}>
+        <View style={{ flex: 1, padding: 24 , marginTop:40,backgroundColor:'lightblue'}}>
           <ActivityIndicator/>
         </View>
       )
@@ -113,13 +113,14 @@ export default class FetchExample extends React.Component {
           renderItem={({item}) => 
 
           <View >
-          <Text style={{color:"brown",fontSize:20,textAlign:"center",marginTop:15,marginBottom:5}}   >{item.bevetel_osszeg} </Text>
+          <Text style={{color:"green",fontSize:20,textAlign:"center",backgroundColor:"lightblue"}}   >{item.bevetel_osszeg}Ft </Text>
           
           <TouchableOpacity
         style={styles.kekgomb}
+        
         onPress={async ()=>this.torles(item.bevetel_id)}
       >
-        <Text style={{color:"white",fontWeight:"bold",fontSize:15}}  >Törlés</Text>
+        <Text style={{color:"red",fontWeight:"bold",fontSize:15}}  >Törlés</Text>
       </TouchableOpacity>
           </View>
         

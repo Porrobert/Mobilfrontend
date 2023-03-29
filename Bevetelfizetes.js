@@ -38,7 +38,7 @@ export default class App extends Component {
     
   
     return (
-      <View style={{ flex: 1, padding: 24 , marginTop:40}}>
+      <View style={{ flex: 1, padding: 24 , marginTop:40,backgroundColor:'lightblue'}}>
         <Text style={{fontSize:40,color:'black',textAlign:'center'}}>
                Összes bevétel fizetésből:
               </Text>
@@ -48,11 +48,8 @@ export default class App extends Component {
             renderItem={({ item }) => (
 
               <View style={{marginBottom:30}}>
-              <Text style={{fontSize:30,color:'darkred',textAlign:'center'}}>
+              <Text style={{fontSize:30,color:'green',textAlign:'center'}}>
                 {item.bevetel_osszeg} Ft
-              </Text>
-              <Text style={{fontSize:20,color:'darkblue',textAlign:'center'}}>
-                {this.levag(item.bevetel_datum)}
               </Text>
               <View style={styles.centeredView}>
      {/* <Modal
