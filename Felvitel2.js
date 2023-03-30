@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet, ActivityIndicator, FlatList, Text, View, Image,ScrollView, TouchableOpacity,TextInput,onChangeText,Button} from 'react-native';
+import {StyleSheet, ActivityIndicator, FlatList, Text, View, Image,ScrollView,StatusBar ,TouchableOpacity,TextInput,onChangeText,Button,SafeAreaView} from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import {Picker} from '@react-native-picker/picker';
 const IP = require('./Ipcim');
@@ -145,7 +145,8 @@ showDatepicker = () => {
 
 
     return (
-      <ScrollView style={{ flex: 1, padding: 24 , marginTop:40,backgroundColor:'lightblue'}}>
+      <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.scrollView}>
 
         <Text  style={{fontSize:30,color:"green"}}>Összeg:{this.state.osszeg} ft</Text>
 
@@ -245,6 +246,7 @@ showDatepicker = () => {
           //s
         )}
       </ScrollView>
+      </SafeAreaView>
     );
   }
 };
@@ -265,7 +267,12 @@ const styles = StyleSheet.create({
     marginBottom:30
   },
   countContainer: {
-    alignItems: "center",
-    padding: 10
+    flex: 1,
+    paddingTop: StatusBar.currentHeight,
+  },
+  scrollView:{
+    backgroundColor: 'lightblue',
+    
   }
+  
 });
