@@ -110,7 +110,7 @@ valfajta=(ertek)=>{
           >
             <Text
             
-            style={styles.gomb,{backgroundColor:"#82AAE3",height:60,fontSize:40,textAlign:'center',marginBottom:20}}>Felvitel</Text>
+            style={styles.gomb}>Felvitel</Text>
           </TouchableOpacity>
        
       </View>
@@ -134,6 +134,11 @@ const styles = StyleSheet.create({
   },
   gomb:{
     alignSelf:'center',
+    textAlign:'center',
+    backgroundColor:"#82AAE3",
+    height:60,
+    fontSize:40,
+    marginBottom:20,
     padding: 20,
     fontSize:20
 
