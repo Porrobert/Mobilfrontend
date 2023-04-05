@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet, ActivityIndicator, FlatList, Text, View, Image, TouchableOpacity,TextInput,onChangeText,Button} from 'react-native';
+import {StyleSheet, ActivityIndicator, FlatList, Text, View, Image,ScrollView,StatusBar ,TouchableOpacity,TextInput,onChangeText,Button,SafeAreaView} from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import {Picker} from '@react-native-picker/picker';
 const IP = require('./Ipcim');
@@ -104,11 +104,17 @@ felvitel=async ()=>{
 
 }
 
+
 levag=(datum2)=>{
   let kecske=datum2.split('T')
   return kecske[0]
   }
-  
+
+torles=()=>{
+  alert(kiadas_id)
+}
+
+
 /*-------------------------------------------- Datitempicker függvényei */
 onChange = (event, selectedDate) => {
   const currentDate = selectedDate;
@@ -121,7 +127,6 @@ onChange = (event, selectedDate) => {
 showMode = (currentMode) => {
   if (Platform.OS === 'android') {
     this.setState({show:true});
-    // for iOS, add a button that closes the picker
   }
   
   
@@ -140,9 +145,10 @@ showDatepicker = () => {
 
 
     return (
-      <View style={{ flex: 1, padding: 24 , marginTop:40,backgroundColor:'lightblue'}}>
+      <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.scrollView}>
 
-        <Text  style={{fontSize:20,}}>Összeg:{this.state.osszeg} ft</Text>
+        <Text  style={{fontSize:30,color:"green"}}>Összeg:{this.state.osszeg} ft</Text>
 
 
 
@@ -150,17 +156,17 @@ showDatepicker = () => {
         <View style={styles.buttonContainer}>
 
         
-        <Text>Ár:</Text>
+        <Text style={{fontSize:25}}>Ár:</Text>
         <TextInput
-        style={{height: 40}}
+        style={{height:40,color:"blue",fontSize:20}}
         placeholder="Írd be az árat!"
         onChangeText={(beirtszoveg)=>this.setState({ar:beirtszoveg})}
         value={this.state.ar}
         />
         
-        <Text>Kiadás neve:</Text>
+        <Text style={{fontSize:25}}>Kiadás neve:</Text>
         <TextInput
-        style={{height: 40}}
+        style={{height: 40,color:"blue",fontSize:20}}
         placeholder="Írd be a kiadás nevét!"
         onChangeText={(beirtszoveg)=>this.setState({kiadas_reszletek:beirtszoveg})}
         value={this.state.kiadas_reszletek}
@@ -195,25 +201,17 @@ showDatepicker = () => {
 
               </Picker>
 
-              <Button
-              onPress={()=>this.felvitel()}
-               title="Felvitel"
-               
-          />
-
-
-
-
-
-
+              <Button onPress={()=>this.felvitel()} title="Felvitel"/>
+              <Button onPress={()=>this.torles()} title="Törlés"/>
+              
         </View>
-       
-       
+
       </View>
 
         
 
         {isLoading ? <ActivityIndicator/> : (
+
           <FlatList
             data={data}
             keyExtractor={({ kiadas_id }, index) => kiadas_id}
@@ -221,15 +219,15 @@ showDatepicker = () => {
               <View style={{marginBottom:30}}>
 
                 
-              <Text style={{fontSize:30,color:'darkred',textAlign:'center',flex:1}}>
+              <Text style={{fontSize:30,color:'blue',textAlign:'center',flex:1}}>
                 {item.fajta_nev}
               </Text>
 
-              <Text style={{fontSize:20,color:'green',textAlign:'center'}}>
+              <Text style={{fontSize:20,color:'black',textAlign:'center'}}>
                 {item.kiadas_nev}
               </Text>
 
-              <Text style={{fontSize:20,color:'blue',textAlign:'center'}}>
+              <Text style={{fontSize:20,color:'green',textAlign:'center'}}>
                 {item.kiadas_ar} ft
               </Text>
 
@@ -240,13 +238,15 @@ showDatepicker = () => {
 
               <Image source={{uri:item.fajta_kep}}
               style={{width:100,height:100,alignSelf:'center',color:'Red',margin:10}}/>
-            <Text style={{borderBottomColor:'black',borderBottomWidth:5}}></Text>
+            <Text style={{borderBottomColor:'darkblue',borderBottomWidth:5,borderStyle:'dashed',margin:10}}></Text>
                   
               </View>
             )}
           />
+          //s
         )}
-      </View>
+      </ScrollView>
+      </SafeAreaView>
     );
   }
 };
@@ -263,10 +263,16 @@ const styles = StyleSheet.create({
     backgroundColor: "blue",
     padding: 10,
     marginLeft:30,
-    marginRight:30
+    marginRight:30,
+    marginBottom:30
   },
   countContainer: {
-    alignItems: "center",
-    padding: 10
+    flex: 1,
+    paddingTop: StatusBar.currentHeight,
+  },
+  scrollView:{
+    backgroundColor: 'lightblue',
+    
   }
+  
 });

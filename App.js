@@ -5,8 +5,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import Kiadas from './Kiadas'
 import Kereses from './Kereses'
 import Rendszerezes from './Rendszerezes'
+import Kiadastorles from './Kiadastorles'
 import Felvitel from './Felvitel'
-import Felvitel2 from './Felvitel2'
 import Ujosszeg from './Ujosszeg'
 import Bevetelfizetes from './Bevetelfizetes'
 import Beveteltorles from './Beveteltorles'
@@ -28,14 +28,14 @@ function Rendszerezes_lap({ navigation }) {
     <Rendszerezes />
   );
 }
+function Kiadastorles_lap({ navigation }) {
+  return (
+    <Kiadastorles />
+  );
+}
 function Felvitel_lap({ navigation }) {
   return (
     <Felvitel />
-  );
-}
-function Felvitel2_lap({ navigation }) {
-  return (
-    <Felvitel2 />
   );
 }
 function Ujosszeg_lap({ navigation }) {
@@ -63,8 +63,8 @@ export default function App() {
         <Drawer.Screen name="Kiadás" component={Kiadas_lap} />
         <Drawer.Screen name="Keresés" component={Kereses_lap} />
         <Drawer.Screen name="Rendszerezés" component={Rendszerezes_lap} />
+        <Drawer.Screen name="Kiadástörlés" component={Kiadastorles_lap} />
         <Drawer.Screen name="Felvitel" component={Felvitel_lap} />
-        <Drawer.Screen name="Felvitel2" component={Felvitel2_lap} />
         <Drawer.Screen name="Új bevétel hozzáadása" component={Ujosszeg_lap} />
         <Drawer.Screen name="Bevételfizetés" component={Bevetelfizetes_lap} />
         <Drawer.Screen name="Bevételtörlés" component={Beveteltorles_lap} />

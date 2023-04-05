@@ -88,7 +88,7 @@ valfajta=(ertek)=>{
           </View>
      
         <Picker 
-                style={{backgroundColor:"blue",color:"black",fontSize:20,marginBottom:20}}
+                style={{backgroundColor:"#82AAE3",color:"black",fontSize:20,marginBottom:20}}
                 selectedValue={this.state.kivalasztott}
                 onValueChange={(itemValue) => this.valfajta(itemValue) }>
                   {this.state.data.map(item=>
@@ -110,7 +110,7 @@ valfajta=(ertek)=>{
           >
             <Text
             
-            style={styles.gomb,{backgroundColor:"cyan",height:60,fontSize:40,textAlign:'center',marginBottom:20}}>Felvitel</Text>
+            style={styles.gomb,{backgroundColor:"#82AAE3",height:60,fontSize:40,textAlign:'center',marginBottom:20}}>Felvitel</Text>
           </TouchableOpacity>
        
       </View>
@@ -136,6 +136,7 @@ const styles = StyleSheet.create({
     alignSelf:'center',
     padding: 20,
     fontSize:20
+
   },
   osszeg:{
     marginLeft: 25,
