@@ -44,34 +44,15 @@ try {
   componentDidMount() {
     this.getMovies();
   }
-/*
-  szavazat=(szam)=>{
-    //alert(szam)
-    var adatok={
-      bevitel1:szam
-    }
-    alert(adatok.bevitel1)
-    const response = fetch('http://192.168.6.3:3000/szavazat',{
-      method: "POST",
-      body: JSON.stringify(adatok),
-      headers: {"Content-type": "application/json; charset=UTF-8"}
-    });
-      const text =  response.text();
-      console.log(text)
-  }
 
-*/
 
-osszeg=()=>{
-
-}
 
   render() {
     const { data, isLoading } = this.state;
 
 
     return (
-      <View style={{ flex: 1, padding: 24 , marginTop:40,backgroundColor:'lightblue'}}>
+      <View style={{ flex: 1, padding: 24 ,backgroundColor:'lightblue'}}>
         
         <Text  style={{fontSize:30,color:"green"}}>Összeg: {this.state.osszeg} ft</Text>
 
@@ -83,7 +64,7 @@ osszeg=()=>{
               <View style={{marginBottom:30}}>
 
                 
-              <Text style={{fontSize:30,color:'black',textAlign:'center',flex:1}}>
+              <Text style={{fontSize:30,color:'blue',textAlign:'center',flex:1}}>
                 {item.fajta_nev}
               </Text>
 

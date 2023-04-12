@@ -58,7 +58,7 @@ levag=(datum2)=>{
 
 
     return (
-      <View style={{ flex: 1, padding: 24 , marginTop:40,backgroundColor:'lightblue'}}>
+      <View style={{ flex: 1, padding: 24 ,backgroundColor:'lightblue'}}>
 
         <Text  style={{fontSize:30,color:"green"}}>Összeg:{this.state.osszeg} ft</Text>
 

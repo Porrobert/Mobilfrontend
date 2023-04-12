@@ -73,8 +73,7 @@ valfajta=(ertek)=>{
         <View>
         <Text style={styles.osszeg}>Összeg:</Text>
         <TextInput
-        style={{height: 40, marginLeft: 40,fontSize:15}}
-        placeholder="Add meg az összeget"
+        style={{height: 40,border:"black",borderWidth:2,borderRadius:10,padding:10,color:"green", marginLeft: 20,fontSize:15,marginRight:20}}
         onChangeText={(beirtszoveg)=>this.setState({osszeg:beirtszoveg})}
         value={this.state.osszeg}
       />
@@ -136,7 +135,7 @@ const styles = StyleSheet.create({
     alignSelf:'center',
     textAlign:'center',
     backgroundColor:"#82AAE3",
-    height:60,
+    height:70,
     fontSize:40,
     marginBottom:20,
     padding: 20,
@@ -150,6 +149,6 @@ const styles = StyleSheet.create({
   },
   datum:{
     marginLeft: 25,
-    fontSize:20
+    fontSize:20,
   }
 });

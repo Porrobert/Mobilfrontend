@@ -106,8 +106,8 @@ felvitel=async ()=>{
 
 
 levag=(datum2)=>{
-  let kecske=datum2.split('T')
-  return kecske[0]
+  let split=datum2.split('T')
+  return split[0]
   }
 
 torles=()=>{
@@ -158,23 +158,26 @@ showDatepicker = () => {
         
         <Text style={{fontSize:25}}>Ár:</Text>
         <TextInput
-        style={{height:40,color:"blue",fontSize:20}}
-        placeholder="Írd be az árat!"
+        style={{color:"green",fontSize:20,borderWidth:2,borderColor:"black",borderRadius:10,padding:10,height:50}}
         onChangeText={(beirtszoveg)=>this.setState({ar:beirtszoveg})}
         value={this.state.ar}
         />
         
         <Text style={{fontSize:25}}>Kiadás neve:</Text>
         <TextInput
-        style={{height: 40,color:"blue",fontSize:20}}
-        placeholder="Írd be a kiadás nevét!"
+        style={{color:"black",fontSize:20,borderWidth:2,borderColor:"black",borderRadius:10,padding:10,height:50,marginBottom:10}}
         onChangeText={(beirtszoveg)=>this.setState({kiadas_reszletek:beirtszoveg})}
         value={this.state.kiadas_reszletek}
         />
 
-<Button onPress={this.showDatepicker} title="Dátum" />    
-    <Text style={{marginLeft:"auto", marginRight:"auto",
-     backgroundColor:"yellow",textAlign:"center", width:200, margin:10,padding:10}}> 
+      <View>
+
+      <Button style={{backgroundColor:"#82AAE3",color:"purple",borderRadius:10}}  onPress={this.showDatepicker} title="Dátum" />  
+
+      </View>
+
+
+    <Text style={{marginLeft:"auto", marginRight:"auto", backgroundColor:"#82AAE3",textAlign:"center", width:200, margin:10,padding:10,borderRadius:10}}> 
     {this.state.date.getFullYear()+"/"+(this.state.date.getMonth()+1)+"/"+this.state.date.getDate()}
     </Text>
     {this.state.show && (
@@ -188,9 +191,9 @@ showDatepicker = () => {
       )}
 
 
-        <Text>Fajta:</Text> 
+        <Text style={{color:"blue",fontSize:20}}>Fajta:</Text> 
           <Picker 
-                style={{backgroundColor:"#42adf5",color:"white",marginTop:10, marginBottom:10}}
+                style={{backgroundColor:"#82AAE3",color:"blue",marginTop:10, marginBottom:10,borderRadius:10}}
                 selectedValue={this.state.valaszto}
                 onValueChange={(itemValue) => this.valfajta(itemValue)
               }>
@@ -201,7 +204,7 @@ showDatepicker = () => {
 
               </Picker>
 
-              <Button onPress={()=>this.felvitel()} title="Felvitel"/>
+              <Button style={{backgroundColor:"#82AAE3"}} onPress={()=>this.felvitel()} title="Felvitel"/>
               <Button onPress={()=>this.torles()} title="Törlés"/>
               
         </View>
@@ -260,11 +263,11 @@ const styles = StyleSheet.create({
   },
   button: {
     alignItems: "center",
-    backgroundColor: "blue",
+    backgroundColor: "#82AAE3",
     padding: 10,
     marginLeft:30,
     marginRight:30,
-    marginBottom:30
+    marginBottom:30,
   },
   countContainer: {
     flex: 1,

@@ -61,12 +61,12 @@ return kecske[0]
     const { data, isLoading } = this.state;
 
     return (
-      <View style={{ flex: 1, padding: 24 , marginTop:40,backgroundColor:'lightblue'}}>
+      <View style={{ flex: 1, padding: 24 ,backgroundColor:'lightblue'}}>
         {isLoading ? <ActivityIndicator/> : (
 
 <View>
 <TextInput
-        style={{height: 40,border:"black",borderWidth:2,margin:5}}
+        style={{height: 40,border:"black",borderWidth:2,margin:5,borderRadius:10,padding:10,color:"blue"}}
         onChangeText={(beirtszoveg)=>this.setState({keresendo:beirtszoveg})}
         value={this.state.keresendo}
         />
@@ -136,13 +136,16 @@ const styles = StyleSheet.create({
   },
   button: {
     alignItems: "center",
-    backgroundColor: "blue",
+    backgroundColor: "#82AAE3",
+    borderRadius:10,
     padding: 10,
-    height:60,
+    height:70,
     marginLeft:20,
     marginRight:20,
     textAlign:'center',
-    textAlignVertical:'center'
+    borderRadius:10,
+    borderWidth:3
+    
   },
   countContainer: {
     alignItems: "center",
