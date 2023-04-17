@@ -60,8 +60,18 @@ try {
     return (
       <View style={{ flex: 1, padding: 24 ,backgroundColor:'lightblue'}}>
         
-        <Text  style={{fontSize:30,color:"green"}}>Összes kiadás:{this.state.osszeg} ft</Text>
-        <Text  style={{fontSize:30,color:"green"}}>Összes bevétel:{this.state.osszeg2} ft</Text>
+        <Text style={{fontSize:30}}> Összes kiadás:</Text>
+        <Text  style={{fontSize:30,color:"red"}}> {}250000 ft</Text>
+        <Text style={{borderBottomColor:'darkblue',borderBottomWidth:5,borderStyle:'dashed',margin:10}}></Text>
+
+        <Text style={{fontSize:30}}> Összes bevétel:</Text>
+        <Text  style={{fontSize:30,color:"green"}}>{}500000 ft</Text>
+        <Text style={{borderBottomColor:'darkblue',borderBottomWidth:5,borderStyle:'dashed',margin:10}}></Text>
+
+        <Text style={{fontSize:30}}> Egyenleg:</Text>
+        <Text  style={{fontSize:30,color:"blue"}}>{}250000 ft</Text>
+        
+
 
         {isLoading ? <ActivityIndicator/> : (
           <FlatList
