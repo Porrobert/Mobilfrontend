@@ -51,7 +51,7 @@ try {
     var adatok={
       bevitel1:szam
     }
-    const response = await fetch(IP.ipcim+'torles',{
+    const response = await fetch(IP.ipcim+'kiadastorles',{
       method: "DELETE",
       body: JSON.stringify(adatok),
       headers: {"Content-type": "application/json; charset=UTF-8"}

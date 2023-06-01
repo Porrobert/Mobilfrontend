@@ -60,13 +60,13 @@ export default function App() {
   return (
     <NavigationContainer>
       <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Egyenleg" component={Bevetelfizetes_lap} />
         <Drawer.Screen name="Kiadás" component={Kiadas_lap} />
-        <Drawer.Screen name="Keresés" component={Kereses_lap} />
         <Drawer.Screen name="Rendszerezés" component={Rendszerezes_lap} />
+        <Drawer.Screen name="Keresés" component={Kereses_lap} />
+        <Drawer.Screen name="Kiadás felvitel" component={Felvitel_lap} />
+        <Drawer.Screen name="Bevétel felvitel" component={Ujosszeg_lap} />
         <Drawer.Screen name="Kiadástörlés" component={Kiadastorles_lap} />
-        <Drawer.Screen name="Felvitel" component={Felvitel_lap} />
-        <Drawer.Screen name="Új bevétel hozzáadása" component={Ujosszeg_lap} />
-        <Drawer.Screen name="Bevételfizetés" component={Bevetelfizetes_lap} />
         <Drawer.Screen name="Bevételtörlés" component={Beveteltorles_lap} />
 
       </Drawer.Navigator>

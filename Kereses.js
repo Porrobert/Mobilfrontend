@@ -47,8 +47,8 @@ kereses=async()=>{
     
 }
 levag=(datum2)=>{
-let kecske=datum2.split('T')
-return kecske[0]
+let split=datum2.split('T')
+return split[0]
 }
 
 

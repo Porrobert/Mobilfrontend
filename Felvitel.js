@@ -191,7 +191,7 @@ showDatepicker = () => {
       )}
 
 
-        <Text style={{color:"blue",fontSize:20}}>Fajta:</Text> 
+        <Text style={{color:"blue",fontSize:20}}>Kiadás fajtája:</Text> 
           <Picker 
                 style={{backgroundColor:"#82AAE3",color:"blue",marginTop:10, marginBottom:10,borderRadius:10}}
                 selectedValue={this.state.valaszto}
